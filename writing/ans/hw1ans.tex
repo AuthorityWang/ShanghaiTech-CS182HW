@@ -1,0 +1,215 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+\usepackage{tikz}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%  
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass : \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Class
+%   - Due date
+%   - Name
+%   - Student ID
+
+\newcommand{\hmwkTitle}{Homework\ \#01}
+\newcommand{\hmwkClass}{CS182: Introduction to Machine Learning}
+\newcommand{\hmwkDueDate}{Mar 7, 2023}
+\newcommand{\hmwkAuthorName}{Penghao Wang}
+\newcommand{\hmwkAuthorID}{2021533138}
+
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\\  \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ at 23:59}\\
+	\vspace{4in}
+}
+
+\author{
+	Name: \textbf{\hmwkAuthorName} \\
+	Student ID: \hmwkAuthorID}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{homeworkProblem}[1]
+    \begin{enumerate}
+        \item 
+        As in least squares, we assume that the regression function $f(x)$ is approximately linear in such equation: $f(x) \approx x^T \beta$. 
+        As in EPE($f$), we have that \\
+        $$\begin{aligned}
+            \rm EPE \it (f) &= \E \left[ L(Y, f(X)) \right] \\
+            &= \E ( Y - f(X)) ^ 2 \\
+            &= \int \left[ Y - f(X) \right] ^2 Pr(dx, dy) \\
+        \end{aligned}$$
+        With $f(X) \approx x^T \beta$, we will get that \\
+        $$\beta = \left[ E(XX^T)\right] ^ {-1} E(XY)$$. 
+        \item Difference
+        \begin{enumerate}
+            \item As for nearest neighbor, it make the regression by taking the average of the nearest K neighbors as the predictions, which is same as take the max one in the K neighbors, and this is a non parametric method.
+            \item As for linear regression, it make the regression by estimates the regression function by minimizing the sum of the squared differences between the actual and predicted values. To make predictions, it just use the calculated parameters to make linear calculations to get the predictions. This is a parametric method.
+        \end{enumerate}
+        Above all, we can see that the main difference is that NN is a non parametric method, while linear regression is a parametric method. And when NN make predicts, it still need the training data to make predictions, but linear regression only use the calculated parameters to make predictions. 
+        \item 
+        With given error loss $L(Y, f(X)) = |Y - f(X)|$, we have:\\
+        $$\begin{aligned}
+            \rm EPE \it (f) &= \E \left[ L(Y, f(X)) \right] \\
+            &= \E | Y - f(X) | \\
+            &= \int | Y - f(X) | Pr(dx, dy). \\
+        \end{aligned}$$
+        We can conditioning on $X$, then we can write EPE as \\
+        $$\begin{aligned}
+            \rm EPE \it (f) &= \E_XE_{Y|X} (|Y - f(X)| | X). \\
+        \end{aligned}$$
+        Then we as it suffices to minimize EPE pointwise, we will get that:
+        $$f(x) = argmin_cE_{Y | X}(|Y - c| | X = x). $$
+        So the we get
+        $$f(X) = \rm median \it (Y|X=x).$$ minimizes $EPE(f)$
+    \end{enumerate}
+\end{homeworkProblem}
+
+\newpage
+
+\begin{homeworkProblem}[2]
+    To prove that $f(x)$ = median($Y$| $X$=$x$) minimizes expected prediction error (EPE) using absolute error loss, we begin by defining the EPE as follows:
+
+    $EPE(f) = E[L(Y,f(X))] = E[|Y - f(X)|]$
+    
+    From this equation, we know that minimizing EPE involves minimizing the expected value of the absolute difference between our predicted ($f(X)$) and actual ($Y$) values.
+    
+    Let's assume that we have some fixed value of $X=x$ and denote the set of all observations such that $X=x$ as $\mathcal{N}(x)$. Using this notation, we can rewrite the above equation as:
+    
+    $EPE(f|x) = E[|Y - f(x)| ;|; X = x]$
+    
+    Now, suppose that we select some other value $f^{'}(x)$. We can then write:
+    
+    $EPE(f^{'}(x)|x) = E[|Y - f^{'}(x)| ;|; X = x]$
+    
+    Our goal is to show that $f(x)$ = median($Y$| $X$=$x$) produces the smallest EPE. Let's start by splitting the absolute value into two separate cases: $Y < f(x)$ and $Y \geq f(x)$.
+    
+    The expected prediction error only depends on how far the predictions are from the median value in each group:
+    
+    $EPE(f|x) = E[|Y - f(x)| ;|; X = x]$
+    
+    $ ,,,,,,,,,,= E[(Y-f(x)) * I(Y<f(x)) + (f(x)-Y) * I(Y\geq f(x))] $
+    
+    We can further simplify this expression by considering the expectation of each of these terms separately:
+    
+    $E[Y-f(x) | X=x,Y<f(x)] + E[f(x)-Y | X=x,Y\geq f(x)] $
+    
+    Both $E[Y-f(x)|X=x,Y<f(x)]$ and $E[f(x)-Y | X=x,Y\geq f(x)]$ are minimized if $f(x)$ is chosen such that an equal number of samples lie on either side of it. This, by definition, is the condition for choosing the median.
+    
+    Hence, we have shown that $f(x)$ = median($Y$| $X$=$x$) minimizes expected prediction error (EPE) using absolute error loss, which proves what was asked to be proven.
+\end{homeworkProblem}
+
+\end{document}
