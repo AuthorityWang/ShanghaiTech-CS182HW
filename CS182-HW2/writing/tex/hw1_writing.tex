@@ -48,10 +48,13 @@ Kernel functions implicitly define some mapping function  $\phi(\cdot)$  that tr
 \begin{itemize}
     \item[(a)]  Prove that the kernel is symmetric,i.e. $K\left(\mathbf{x}_{i}, \mathbf{x}_{j}\right)=K\left(\mathbf{x}_{j}, \mathbf{x}_{i}\right).$\defpoints{5}
     \\
-    \textcolor{blue}{solution: }
+    \textcolor{blue}{solution: As the the kernel function is defined as $$K\left(\mathbf{x}_{i}, \mathbf{x}_{j}\right) \equiv   \left\langle\phi\left(\mathbf{x}_{i}\right), \phi\left(\mathbf{x}_{j}\right)\right\rangle $$
+    Then we have that for any two input mapping function $\phi\left(\mathbf{x}_{i}\right), \phi\left(\mathbf{x}_{j}\right) \in R$, then we use the property of dot product, we have that $$K\left(\mathbf{x}_{i}, \mathbf{x}_{j}\right)\equiv\left\langle\phi\left(\mathbf{x}_{i}\right), \phi\left(\mathbf{x}_{j}\right)\right\rangle \equiv \left\langle\phi\left(\mathbf{x}_{j}\right), \phi\left(\mathbf{x}_{i}\right)\right\rangle \equiv K\left(\mathbf{x}_{j}, \mathbf{x}_{i}\right)$$
+    So we get that the kernel is symmetric.}
  \item[(b)] Assume we use radial basis kernel function  $K\left(\mathbf{x}_{i}, \mathbf{x}_{j}\right)=\exp \left(-\frac{1}{2}\left\|\mathbf{x}_{i}-\mathbf{x}_{j}\right\|^{2}\right)$. Thus there is some implicit unknown mapping function  $\phi(\mathbf{x}) $. Prove that for any two input instances  $\mathbf{x}_{i}$  and  $\mathbf{x}_{j}$, the squared Euclidean distance of their corresponding points in the feature space  Q  is less than 2, i.e. prove that  $\left\|\phi\left(\mathbf{x}_{i}\right)-\phi\left(\mathbf{x}_{j}\right)\right\|^{2} \leq 2$.\defpoints{5}
 
-\textcolor{blue}{solution:}
+\textcolor{blue}{solution: the radial basis kernel function is defined as $$K\left(\mathbf{x}_{i}, \mathbf{x}_{j}\right)=\exp \left(-\frac{1}{2}\left\|\mathbf{x}_{i}-\mathbf{x}_{j}\right\|^{2}\right)$$
+    Then we have that $$\parallel\phi(\mathbf{x}_{i}) - \phi(\mathbf{x}_{j})\parallel^2 = $$}
 
 \item[(c)] With the help of a kernel function, SVM attempts to construct a hyper-plane in the feature space  Q  that maximizes the margin between two classes. The classification decision of any  $\mathbf{x}$  is made on the basis of the sign of$$
 \langle\hat{\mathbf{w}}, \phi(\mathbf{x})\rangle+\hat{w}_0=\sum_{i \in S V} y_i \alpha_i K\left(\mathbf{x}_i, \mathbf{x}\right)+\hat{w}_0=f\left(\mathbf{x} ; \alpha, \hat{w}_0\right),

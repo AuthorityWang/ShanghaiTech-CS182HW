@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.12)  14 MAR 2023 20:17
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.12)  22 MAR 2023 21:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -479,8 +479,7 @@ File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count322
 \g__pdf_backend_annotation_int=\count323
 \g__pdf_backend_link_int=\count324
-)
-No file hw1_writing.aux.
+) (./hw1_writing.aux)
 \openout1 = `hw1_writing.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
@@ -493,7 +492,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 36.
-(c:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
+ (c:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 36.
@@ -571,26 +570,16 @@ LaTeX Warning: No \author given.
 [1
 
 ] [2]
-
-LaTeX Warning: Reference `bayesnet' on page 3 undefined on input line 93.
-
 File: figs/p3_1.jpg Graphic file (type bmp)
 <figs/p3_1.jpg>
-[3] (./hw1_writing.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ [3] (./hw1_writing.aux) ) 
 Here is how much of TeX's memory you used:
- 16833 strings out of 476179
- 330687 string characters out of 5813072
- 800116 words of memory out of 5000000
- 37244 multiletter control sequences out of 15000+600000
- 482158 words of font info for 83 fonts, out of 8000000 for 9000
+ 16832 strings out of 476179
+ 330637 string characters out of 5813072
+ 805116 words of memory out of 5000000
+ 37243 multiletter control sequences out of 15000+600000
+ 482150 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 100i,6n,104p,596b,327s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 100i,6n,104p,596b,326s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on hw1_writing.pdf (3 pages).
