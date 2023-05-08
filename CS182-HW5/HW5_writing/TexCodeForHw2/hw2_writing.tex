@@ -1,0 +1,97 @@
+%!TEX program = xelatex
+\documentclass[10pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{listings}
+\usetikzlibrary{arrows}
+\usepackage{subfigure}
+\usepackage{graphicx,booktabs,multirow}
+\usepackage[a4paper]{geometry}
+\usepackage{upquote}
+\usepackage{float}
+\usepackage{pdfpages}
+
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\lstset{language=Matlab}
+\lstset{breaklines}
+
+\input defs.tex
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+\titleformat*{\section}{\centering\LARGE\scshape}
+\renewcommand{\thesection}{\Roman{section}}
+\lstset{language=Matlab,tabsize=4,frame=shadowbox,basicstyle=\footnotesize,
+keywordstyle=\color{blue!90}\bfseries,breaklines=true,commentstyle=\color[RGB]{50,50,50},stringstyle=\ttfamily,numbers=left,numberstyle=\tiny,
+  numberstyle={\color[RGB]{192,92,92}\tiny},backgroundcolor=\color[RGB]{245,245,244},inputpath=code}
+
+\begin{document}
+
+\date{\today}
+\title{Introduction to Machine Learning, Spring 2023 \\
+	Homework 5\\
+	\small (Due Tues, May 23 at 11:59pm (CST))}
+\maketitle
+\begin{enumerate}[1.]
+
+
+\item \defpoints{20}
+Consider the data  $\left(X_{1}, Y_{1}\right), \ldots,\left(X_{n}, Y_{n}\right)$  where  $X_{i} \in \mathbb{R}$  and  $Y_{i} \in \mathbb{R}$ . Inspired by the fact that  $\mathbb{E}[Y \mid X=   x]=\int y p(x, y) d y / p(x)$ , define
+
+$$\widehat{m}(x)=\frac{\int y \widehat{p}(x, y) d y}{\widehat{p}(x)}$$
+
+where
+
+$$\widehat{p}(x)=\frac{1}{n} \sum_{i} \frac{1}{h} K\left(\frac{X_{i}-x}{h}\right)$$
+
+and
+
+$$\widehat{p}(x, y)= \frac{1}{n} \sum_{i} \frac{1}{h^{2}} K\left(\frac{X_{i}-x}{h}\right) K\left(\frac{Y_{i}-y}{h}\right) .$$
+
+Assume that  $\int K(u) d u=1$  and  $\int u K(u) d u=0$. Show that  $\widehat{m}(x)$  is exactly the kernel regression estimator $\frac{\sum K\left(\frac{x-X_{i}}{h}\right) Y_{i}}{\sum K\left(\frac{x-X_{i}}{h}\right)}$.
+
+\textcolor{blue}{solution:}
+
+
+
+
+\newpage
+\item \defpoints{30}
+Let  $f$  be differentiable, $\mathrm{m}$-strongly convex,  $\mathrm{M}$-smooth and with minimizer  $x^{*}$ . In this exercise, we explore how to prove convergence in the function value difference  $f\left(x^{l}\right)-f\left(x^{*}\right)$  for gradient descent with step size  $\alpha=1 / M $.
+\begin{enumerate}
+    \item Prove that:$$f\left(x^{l+1}\right)-f\left(x^{*}\right) \leq f\left(x^{l}\right)-f\left(x^{*}\right)-\frac{1}{2 M}\left\|\nabla f\left(x^{l}\right)\right\|_{2}^{2}$$
+    This shows that we have a descent  method \defpoints{10}
+
+    \textcolor{blue}{solution:}
+
+\item Prove that:
+$$
+\frac{m}{M}\left(f\left(x^l\right)-f\left(x^*\right)\right) \leq \frac{1}{2 M}\left\|\nabla f\left(x^l\right)\right\|_2^2
+$$
+\defpoints{10}
+
+
+\textcolor{blue}{solution:}
+ 
+\item Conclude that:
+$$
+f\left(x^{l+1}\right)-f\left(x^*\right) \leq\left(1-\frac{m}{M}\right)\left(f\left(x^l\right)-f\left(x^*\right)\right)
+$$
+This shows that we have geometric convergence with parameter $1-\frac{m}{M}$\defpoints{10}
+
+
+\textcolor{blue}{solution:}
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
